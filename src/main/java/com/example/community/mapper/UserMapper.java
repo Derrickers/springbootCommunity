@@ -13,7 +13,7 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserMapper {
     //插入数据，自动读取User对象中对应属性的内容，填写到sql语句中
-    @Insert("insert into user (name,account_id,token,gmt_create,gmt_modify) values (#{name},#{accountId},#{token},#{gmtCreate},#{gmtModify})")
+    @Insert("insert into user (name,account_id,token,gmt_create,gmt_modify,avatar_url) values (#{name},#{accountId},#{token},#{gmtCreate},#{gmtModify},#{avatarUrl})")
     void insert(User user);
 
     @Select("select * from user where token = #{token}")
