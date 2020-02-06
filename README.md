@@ -17,6 +17,7 @@
 
 [Visual-Paradigm](https://www.visual-paradigm.com)
 
+[FlyWay](https://flywaydb.org)
 
 ## 脚本
 ```sql
@@ -29,5 +30,9 @@ CREATE TABLE USER
   GMT_CREATE BIGINT,
   GMT_MODIFY BIGINT
 );
+
+```
+```bash
+mvn flyway:migrate
 
 ```
