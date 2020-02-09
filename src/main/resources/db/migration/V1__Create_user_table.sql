@@ -1,3 +1,5 @@
+create user if not exists sa password '123';
+alter user sa admin true;
 CREATE TABLE USER
 (
   ID int AUTO_INCREMENT PRIMARY KEY NOT NULL,
