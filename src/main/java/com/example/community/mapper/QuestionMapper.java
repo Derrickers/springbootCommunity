@@ -1,11 +1,10 @@
 package com.example.community.mapper;
 
-import com.example.community.dto.QuestionDTO;
 import com.example.community.model.Question;
 import org.apache.ibatis.annotations.*;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
+
 
 @Mapper
 public interface QuestionMapper {
@@ -23,11 +22,14 @@ public interface QuestionMapper {
     Integer countByUserId(@Param(value = "userId") String userId);
 
     @Select("select * from question where id = #{id}")
-    Question getById(@Param(value = "id") Integer id);
+    Question getById(@Param(value = "id") Long id);
 
     @Update("update question set title = #{title}, description = #{description},gmt_modify = #{gmtModify},tag = #{tag} where id = #{id}")
     void update(Question question);
 
     @Update("update question set view_count = view_count+1 where id = #{id}")
-    void updateViewCount(@Param(value = "id") Integer id);
+    void updateViewCount(@Param(value = "id") Long id);
+
+    @Update("update question set comment_count = comment_count+1 where id = #{id}")
+    void updateCommentCount(@Param(value = "id") Long id);
 }

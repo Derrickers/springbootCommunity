@@ -37,7 +37,7 @@ public class QuestionService {
 
 
         for(Question question:questions){
-            User user = userMapper.findById(question.getCreator());
+            User user = userMapper.findByAccountId(question.getCreator());
             QuestionDTO questionDTO = new QuestionDTO();
             //快速把前对象伤的所有属性拷贝到之后的对象中,名称相同
             BeanUtils.copyProperties(question,questionDTO);
@@ -61,7 +61,7 @@ public class QuestionService {
 
 
         for(Question question:questions){
-            User user = userMapper.findById(question.getCreator());
+            User user = userMapper.findByAccountId(question.getCreator());
             QuestionDTO questionDTO = new QuestionDTO();
             //快速把前对象伤的所有属性拷贝到之后的对象中,名称相同
             BeanUtils.copyProperties(question,questionDTO);
@@ -74,14 +74,14 @@ public class QuestionService {
         return paginationDTO;
     }
 
-    public QuestionDTO getById(Integer id) {
+    public QuestionDTO getById(Long id) {
         Question question = questionMapper.getById(id);
         if(question == null){
             throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
         }
         QuestionDTO questionDTO = new QuestionDTO();
         BeanUtils.copyProperties(question,questionDTO);
-        User user = userMapper.findById(question.getCreator());
+        User user = userMapper.findByAccountId(question.getCreator());
         questionDTO.setUser(user);
         return questionDTO;
     }
@@ -101,7 +101,7 @@ public class QuestionService {
         }
     }
 
-    public void incView(Integer id) {
+    public void incView(Long id) {
         questionMapper.updateViewCount(id);
     }
 }
