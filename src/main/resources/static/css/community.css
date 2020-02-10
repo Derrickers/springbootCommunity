@@ -28,6 +28,11 @@ body{
 }
 
 .community-menu {
+    margin-left: 8px;
     font-size: 13px;
     color : #999;
+}
+
+.jumbotron{
+    margin: 50px;
 }
