@@ -37,7 +37,7 @@ body{
     margin: 50px;
 }
 
-.media-body{
+.creator{
     padding-top: 10px;
 }
 .comment{
@@ -46,4 +46,29 @@ body{
 .comment-btn{
     float: right;
     margin-bottom: 10px;
+}
+
+.comment-sp{
+    margin-top: 0;
+}
+
+.comment-menu{
+    margin-top: 8px;
+    color: #999;
+}
+
+.comment-menu .icon{
+    margin-right: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.comment-body{
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.comment-menu .icon:hover{
+    color: #499ef3;
 }
