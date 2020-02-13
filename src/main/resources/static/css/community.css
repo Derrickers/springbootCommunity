@@ -58,9 +58,13 @@ body{
 }
 
 .comment-menu .icon{
-    margin-right: 8px;
+    margin-right: 10px;
     font-size: 15px;
     cursor: pointer;
+}
+
+.comment-menu .onUse{
+    color: #499ef3;
 }
 
 .comment-body{
@@ -72,3 +76,32 @@ body{
 .comment-menu .icon:hover{
     color: #499ef3;
 }
+
+.sub-comment{
+    margin-top: 10px;
+    border: 1px solid #eee;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.question-related{
+    line-height: 20px;
+    font-size: 12px;
+    margin-left: 0;
+    list-style: none;
+    padding-left: 0;
+}
+
+.tag{
+    margin-right: 5px;
+}
+.tags{
+    margin-top: 10px;
+    display: none;
+}
+.tab-content{
+    margin-top: 5px;
+}
+

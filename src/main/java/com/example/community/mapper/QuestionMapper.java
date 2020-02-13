@@ -12,7 +12,7 @@ public interface QuestionMapper {
     @Insert("insert into question (title,description,gmt_create,gmt_modify,creator,tag) values (#{title},#{description},#{gmtCreate},#{gmtModify},#{creator},#{tag})")
     void create(Question question);
 
-    @Select("select * from question limit #{offset},#{size}")
+    @Select("select * from question order by gmt_create desc limit #{offset},#{size}")
     List<Question> list(@Param(value = "offset") Integer offset,@Param(value = "size") Integer size);
 
     @Select("select count(1) from question")
@@ -20,6 +20,9 @@ public interface QuestionMapper {
 
     @Select("select count(1) from question where creator = #{userId}")
     Integer countByUserId(@Param(value = "userId") String userId);
+
+    @Select("select * from question where title regexp #{regexp} order by gmt_create desc")
+    List<Question> listBySearch(@Param(value = "regexp") String regexp);
 
     @Select("select * from question where id = #{id}")
     Question getById(@Param(value = "id") Long id);
@@ -32,4 +35,7 @@ public interface QuestionMapper {
 
     @Update("update question set comment_count = comment_count+1 where id = #{id}")
     void updateCommentCount(@Param(value = "id") Long id);
+
+    @Select("select * from question where id != #{id} and tag regexp #{regexp}")
+    List<Question> listByRegexp(@Param(value = "regexp") String regexp,@Param(value = "id") Long id);
 }

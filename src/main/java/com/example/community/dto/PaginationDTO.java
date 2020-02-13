@@ -9,8 +9,8 @@ import java.util.List;
  * 本类的目的在于承载所有页面需要的元素，将其整合在一起，作为传输层数据
  */
 @Data
-public class PaginationDTO {
-    private List<QuestionDTO> questions;
+public class PaginationDTO<T> {
+    private List<T> data;
     private boolean showPrevious;
     private boolean showFirstPage;
     private boolean showNext;

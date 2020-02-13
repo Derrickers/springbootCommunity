@@ -1,6 +1,7 @@
 package com.example.community.controller;
 
 import com.example.community.dto.PaginationDTO;
+import com.example.community.dto.QuestionDTO;
 import com.example.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,9 +21,10 @@ public class IndexController {
     @GetMapping("/")
     public String index(Model model,
                         @RequestParam(name = "page", defaultValue = "1") Integer page,
-                        @RequestParam(name = "size", defaultValue = "5") Integer size){
+                        @RequestParam(name = "size", defaultValue = "8") Integer size,
+                        @RequestParam(name = "search",required = false) String search){
         //跳转之前显示
-        PaginationDTO paginationDTO = questionService.list(page,size);
+        PaginationDTO<QuestionDTO> paginationDTO = questionService.listWithSearch(search,page,size);
         model.addAttribute("pagination",paginationDTO);
         return "index";
     }

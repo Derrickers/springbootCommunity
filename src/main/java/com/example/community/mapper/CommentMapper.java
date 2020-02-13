@@ -1,10 +1,7 @@
 package com.example.community.mapper;
 
 import com.example.community.model.Comment;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -17,6 +14,9 @@ public interface CommentMapper {
     @Select("select * from comment where id = #{Id}")
     Comment getById(@Param(value = "Id") Long Id);
 
-    @Select("select * from comment where parent_id = #{parentId} and type = #{type}")
+    @Select("select * from comment where parent_id = #{parentId} and type = #{type} order by gmt_create desc")
     List<Comment> getByParentIdAndType(@Param(value = "parentId") Long id,@Param(value = "type") Integer type);
+
+    @Update("update comment set comment_count = comment_count+1 where id = #{id}")
+    void updateCommentCount(@Param(value = "id") Long id);
 }

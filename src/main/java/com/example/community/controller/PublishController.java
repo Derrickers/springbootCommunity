@@ -1,5 +1,6 @@
 package com.example.community.controller;
 
+import com.example.community.cache.TagCache;
 import com.example.community.dto.QuestionDTO;
 import com.example.community.model.Question;
 import com.example.community.model.User;
@@ -20,9 +21,17 @@ public class PublishController {
     @Autowired
     private QuestionService questionService;
 
+
+
     //直接访问页面时触发get事件
     @GetMapping("/publish")
-    public String publish(){
+    public String publish(Model model){
+        TagCache tagCache = new TagCache();
+        tagCache.InitTagCache();
+        model.addAttribute("emotionTags",tagCache.getEmotion());
+        model.addAttribute("studyTags",tagCache.getStudy());
+        model.addAttribute("lifeTags",tagCache.getLife());
+        model.addAttribute("surpriseTags",tagCache.getSurprise());
         return "publish";
     }
 
@@ -34,6 +43,7 @@ public class PublishController {
                             @RequestParam(value = "id",required = false) Long id,
                             HttpServletRequest request,
                             Model model){
+
         model.addAttribute("title",title);
         model.addAttribute("description",description);
         model.addAttribute("tag",tag);
@@ -74,7 +84,7 @@ public class PublishController {
         model.addAttribute("description",questionDTO.getDescription());
         model.addAttribute("tag",questionDTO.getTag());
         model.addAttribute("id",questionDTO.getId());
-        return publish();
+        return "publish";
     }
 
 }
