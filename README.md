@@ -43,3 +43,11 @@ CREATE TABLE USER
 mvn flyway:migrate
 
 ```
+
+## 部署
+
+- git
+- JDK
+- Maven
+- MySQL
+
