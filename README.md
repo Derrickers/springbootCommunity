@@ -51,3 +51,10 @@ mvn flyway:migrate
 - Maven
 - MySQL
 
+```bash
+mvn clean compile package
+#打包文件
+//运行命令
+java -jar -Dspring.profiles.active=production target/community-0.0.1-SNAPSHOT.jar
+```
+
