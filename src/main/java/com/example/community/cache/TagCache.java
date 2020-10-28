@@ -39,20 +39,19 @@ public class TagCache {
         study.add("英语");
     }
     private void InitEmotion(){
-        emotion.add("想你");
-        emotion.add("爱你");
-        emotion.add("吃掉你");
+        emotion.add("开心");
+        emotion.add("失落");
+        emotion.add("愤怒");
     }
     private void InitLife(){
         life.add("做饭");
         life.add("运动");
-        life.add("买可乐");
+        life.add("健身");
     }
     private void InitSurprise(){
         surprise.add("生日");
         surprise.add("节日");
         surprise.add("纪念日");
-        surprise.add("没啥意义就是想送");
     }
 
 }
